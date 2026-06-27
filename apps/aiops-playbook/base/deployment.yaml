@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aiops-playbook
+  namespace: aiops
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: aiops-playbook
+
+  template:
+    metadata:
+      labels:
+        app: aiops-playbook
+
+    spec:
+      containers:
+        - name: aiops-playbook
+
+          image: ghcr.io/adahmilly/aiops-gitops-playbook:develop
+
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 3000
+
+          envFrom:
+            - configMapRef:
+                name: aiops-config
+
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
+            limits:
+              cpu: 500m
+              memory: 512Mi
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 30

@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: aiops-playbook
+
+spec:
+  replicas: 3
+
+  template:
+    spec:
+      containers:
+        - name: aiops-playbook
+          image: ghcr.io/adahmilly/aiops-gitops-playbook:latest

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: aiops-config
+  namespace: aiops
+
+data:
+  NODE_ENV: production
