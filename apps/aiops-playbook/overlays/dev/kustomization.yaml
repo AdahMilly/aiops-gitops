@@ -5,4 +5,7 @@ resources:
   - ../../base
 
 patches:
-  - path: patch.yaml
+  - target:
+      kind: Deployment
+      name: aiops-playbook
+    path: patch.yaml
