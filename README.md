@@ -1,1 +1,2 @@
-# aiops-gitops
+# GitOps repository containing the manifests.
+
