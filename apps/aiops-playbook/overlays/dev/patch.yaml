@@ -11,4 +11,4 @@ spec:
     spec:
       containers:
         - name: aiops-playbook
-          image: ghcr.io/adahmilly/aiops-gitops-playbook:35daf84b9787b3f299daee595be05f860eea13f0
+          image: ghcr.io/adahmilly/aiops-gitops-playbook:983e5b1e76dfea11426573bd40d8d0743a52a220
