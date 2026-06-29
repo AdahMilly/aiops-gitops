@@ -10,5 +10,12 @@ spec:
   template:
     spec:
       containers:
-        - name: aiops-playbook
-          image: ghcr.io/AdahMilly/aiops-gitops-playbook:2754eb45716fca0a4dcc865533af720c5da9674b
+        - name: Convert owner to lowercase
+          id: owner
+          run: |
+            echo "owner=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+        - name: Update Image Tag
+          run: |
+            sed -i "s|image: .*|image: ghcr.io/${{ steps.owner.outputs.owner }}/aiops-gitops-playbook:${{ github.sha }}|g" \
+            gitops/apps/aiops-playbook/overlays/dev/patch.yaml
