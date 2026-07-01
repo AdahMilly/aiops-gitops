@@ -5,3 +5,4 @@ resources:
   - ../../apps/aiops-playbook/overlays/dev
   - ../../observability/alertmanager
   - ../../observability/prometheus-rules
+  - ../../observability/servicemonitors

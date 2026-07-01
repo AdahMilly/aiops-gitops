@@ -5,12 +5,14 @@ metadata:
   name: aiops-service
   namespace: aiops
 
+  labels:
+    app: aiops-playbook
+
 spec:
   selector:
     app: aiops-playbook
 
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 3000
-
-  type: ClusterIP
