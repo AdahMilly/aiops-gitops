@@ -1,0 +1,6 @@
+grafana:
+  enabled: false
+
+datasource:
+  enabled: true
+  isDefaultDatasource: false
